@@ -12,8 +12,9 @@ namespace MyCourse.Controllers
     {
         public IActionResult Index()
         {
-            /* return Content("Sono index"); */
-            return View();
+            var courseService = new CourseService();
+            List<CourseViewModel> courses = courseService.GetService();
+            return View(courses);
         }
         public IActionResult Detail(string id)
         {
